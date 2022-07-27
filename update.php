@@ -11,31 +11,6 @@ if(isset($_POST['update']))
     $plan = mysqli_real_escape_string($mysqli, $_POST['plan']);
     $expiryDate = mysqli_real_escape_string($mysqli, $_POST['expiryDate']);
 	
-	//  checking empty fields
-	if(empty($name) || empty($phone) || empty($email) || empty($plan) || empty($expiryDate)) {
-				
-		if(empty($name)) {
-			echo "<font color='red'>Name field is empty.</font><br/>";
-		}
-		
-		if(empty($phone)) {
-			echo "<font color='red'>Phone field is empty.</font><br/>";
-		}
-		
-		if(empty($email)) {
-			echo "<font color='red'>Email field is empty.</font><br/>";
-		}
-
-        if(empty($plan)) {
-			echo "<font color='red'>Plan field is empty.</font><br/>";
-		}
-        
-        if(empty($expiryDate)) {
-			echo "<font color='red'>Expiry Date field is empty.</font><br/>";
-		}
-		
-		echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
-	}  else {	
 		// updating the data
 		$result = mysqli_query($mysqli, "UPDATE users SET name='$name',email='$email',phone='$phone',plan='$plan',expiryDate='$expiryDate' WHERE id=$id");
 		
@@ -47,7 +22,6 @@ if(isset($_POST['update']))
             echo "Failed" . mysqli_error($conn);
         }
 
-	}
 }
 ?>
 <?php
@@ -76,20 +50,20 @@ while($res = mysqli_fetch_array($result))
 
 <body>
 
-	 <!-- Navbar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">EduLab</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                <a class="nav-link" href="add-item.html">Add Subscriber</a>
+        <div class="container-fluid mx-5">
+            <a class="navbar-brand" href="index.php">EduLab</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link" href="add-item.html">Add Subscriber</a>
 
-            </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -103,27 +77,34 @@ while($res = mysqli_fetch_array($result))
 
             <div class="form-outline mb-1">
                 <label class="form-label" for="name">Name</label>
-                <input type="text" id="name" name="name" value="<?php echo $name;?>" class="form-control form-control-md" />
+                <input type="text" id="name" name="name" value="<?php echo $name;?>" class="form-control form-control-md" required />
             </div>
 
             <div class="form-outline mb-1">
                 <label class="form-label" for="email">Your Email</label>
-                <input type="email" id="email" name="email" value="<?php echo $email;?>" class="form-control form-control-md" />
+                <input type="email" id="email" name="email" value="<?php echo $email;?>" class="form-control form-control-md" required />
             </div>
 
             <div class="form-outline mb-1">
                 <label class="form-label" for="phone">Your Phone</label>
-                <input type="tel" id="phone" name="phone" value="<?php echo $phone;?>" class="form-control form-control-md" />
+                <input type="tel" id="phone" name="phone" value="<?php echo $phone;?>" class="form-control form-control-md" required />
             </div>
 
             <div class="form-outline mb-1">
                 <label class="form-label" for="plan">Plan</label>
-                <input type="text" id="plan" name="plan" value="<?php echo $plan;?>" class="form-control form-control-md" />
+                <select class="form-select" name="plan" aria-label="Default select example">
+                    <option selected><?php echo $plan;?></option>
+                    <option>Basic</option>
+                    <option>Standard</option>
+                    <option>Premium</option>
+                </select>
+                <div class="form-text">Select your plan from the dropdown.</div>
+
             </div>
 
             <div class="form-outline mb-3">
                 <label class="form-label" for="expiryDate">Expiry Date</label>
-                <input type="date" id="expiry" name="expiryDate" value="<?php echo $expiryDate;?>" class="form-control form-control-md" />
+                <input type="date" id="expiry" name="expiryDate" value="<?php echo $expiryDate;?>" class="form-control form-control-md" required />
             </div>
 
             <input type="hidden" name="id" value="<?php echo $_GET['id'];?>">

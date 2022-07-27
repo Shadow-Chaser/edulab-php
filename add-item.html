@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Add Subscriber</title>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">EduLab</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link" href="add-item.html">Add Subscriber</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--  -->
+
+    <div class="w-50 mx-auto mb-3">
+        <h1 class="text-center mb-5 mt-3">Add Subscriber</h1>
+
+        <form action="add.php" method="post" name="form1">
+
+
+            <div class="form-outline mb-1">
+                <label class="form-label" for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control form-control-md" />
+            </div>
+
+            <div class="form-outline mb-1">
+                <label class="form-label" for="emal">Your Email</label>
+                <input type="email" id="email" name="email" class="form-control form-control-md" />
+            </div>
+
+            <div class="form-outline mb-1">
+                <label class="form-label" for="phone">Your Phone</label>
+                <input type="tel" id="phone" name="phone" class="form-control form-control-md" />
+            </div>
+
+            <div class="form-outline mb-1">
+                <label class="form-label" for="plan">Plan</label>
+                <input type="text" id="plan" name="plan" class="form-control form-control-md" />
+            </div>
+
+            <div class="form-outline mb-3">
+                <label class="form-label" for="expiryDate">Expiry Date</label>
+                <input type="date" id="expiry" name="expiryDate" class="form-control form-control-md" />
+            </div>
+
+
+            <div class="d-flex justify-content-center">
+                <input class="btn btn-success" type="submit" name="Submit" value="Add">
+            </div>
+
+        </form>
+
+    </div>
+
+
+</body>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+</html>
